@@ -1,0 +1,585 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript">
+    function result() {
+        var Q1 = parseInt(document.querySelector('input[name="Q1"]:checked')?.value);
+		var Q2 = parseInt(document.querySelector('input[name="Q2"]:checked')?.value);
+		var Q3 = parseInt(document.querySelector('input[name="Q3"]:checked')?.value);
+		var Q4 = parseInt(document.querySelector('input[name="Q4"]:checked')?.value);
+		var Q5 = parseInt(document.querySelector('input[name="Q5"]:checked')?.value);
+		var Q6 = parseInt(document.querySelector('input[name="Q6"]:checked')?.value);
+		var Q7 = parseInt(document.querySelector('input[name="Q7"]:checked')?.value);
+		var Q8 = parseInt(document.querySelector('input[name="Q8"]:checked')?.value);
+		var Q9 = parseInt(document.querySelector('input[name="Q9"]:checked')?.value);
+		var Q10 = parseInt(document.querySelector('input[name="Q10"]:checked')?.value);
+		var Q11 = parseInt(document.querySelector('input[name="Q11"]:checked')?.value);
+		var Q12 = parseInt(document.querySelector('input[name="Q12"]:checked')?.value);
+		var Q13 = parseInt(document.querySelector('input[name="Q13"]:checked')?.value);
+		var Q14 = parseInt(document.querySelector('input[name="Q14"]:checked')?.value);
+		var Q15 = parseInt(document.querySelector('input[name="Q15"]:checked')?.value);
+		var Q16 = parseInt(document.querySelector('input[name="Q16"]:checked')?.value);
+		var Q17 = parseInt(document.querySelector('input[name="Q17"]:checked')?.value);
+		var sum1 = (Q1 + Q4 + Q6 + Q9 + Q12 + Q15 + Q17) / 7;
+		var sum2 = (Q2 + Q5 + Q8 + Q11 + Q14) / 5;
+		var sum3 = (Q3 + Q7 + Q10 + Q13 + Q16) / 5;		
+		if (isNaN(sum1) || isNaN(sum2) || isNaN(sum3)){
+			document.getElementById('AlertLabel').style.display = 'block';
+			document.getElementById('AlertLabel').scrollIntoView({behavior: 'smooth'});
+		}
+		else {		
+        const chartElement = document.getElementById('myChart');
+        new Chart(chartElement, {
+            type: 'bar',
+            data: {
+                labels: ['身體焦慮', '認知焦慮', '自信心'],
+                datasets: [{
+					backgroundColor: [
+						'rgba(65, 105, 225, 0.4)',
+						'rgba(65, 105, 225, 0.4)',
+						'rgba(255, 215, 0, 0.4)'
+					],
+					borderColor: [
+						'rgba(65, 105, 225, 1)',
+						'rgba(65, 105, 225, 1)',
+						'rgba(255, 215, 0, 1)'
+					],
+					borderWidth: 1,
+				data: [sum1, sum2, sum3]
+				}]
+            },
+			options: {
+				plugins: {
+					legend: {
+						display: false
+					}
+				},
+				responsive: false,
+				scales: {
+					y: {
+						min: 0,
+						max: 4
+					}
+				}
+			}
+        });
+		document.getElementById('myChart').scrollIntoView({behavior: 'smooth'});
+		document.getElementById('AlertLabel').style.display = 'none';
+		document.getElementById('ResultLabel').style.display = 'block';
+		}
+    }
+</script>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>賽前狀態焦慮量表</title>
+<style>
+fieldset {
+    min-width: 0;
+    max-width: 97%;
+    width: 97%;
+}
+</style>
+</head>
+<body>
+<form name="form1">
+  <h2>賽前狀態焦慮量表</h2>
+  <fieldset>
+    <legend>1. 我覺得忐忑不安</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q1_1" name="Q1" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q1_2" name="Q1" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q1_3" name="Q1" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q1_4" name="Q1" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>2. 我擔心自己無法在表演中發揮應有的實力</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q2_1" name="Q2" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q2_2" name="Q2" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q2_3" name="Q2" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q2_4" name="Q2" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>3. 我覺得有自信</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q3_1" name="Q3" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q3_2" name="Q3" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q3_3" name="Q3" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q3_4" name="Q3" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>4. 我覺得身體緊張</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q4_1" name="Q4" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q4_2" name="Q4" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q4_3" name="Q4" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q4_4" name="Q4" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>5. 我擔心會表現得不好</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q5_1" name="Q5" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q5_2" name="Q5" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q5_3" name="Q5" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q5_4" name="Q5" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>6. 我覺得胃部緊縮</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q6_1" name="Q6" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q6_2" name="Q6" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q6_3" name="Q6" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q6_4" name="Q6" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>7. 我有信心克服挑戰</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q7_1" name="Q7" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q7_2" name="Q7" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q7_3" name="Q7" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q7_4" name="Q7" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>8. 我擔心在壓力下會失常</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q8_1" name="Q8" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q8_2" name="Q8" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q8_3" name="Q8" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q8_4" name="Q8" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>9. 我的心跳急速</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q9_1" name="Q9" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q9_2" name="Q9" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q9_3" name="Q9" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q9_4" name="Q9" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>10. 我有信心會表現得很好</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q10_1" name="Q10" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q10_2" name="Q10" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q10_3" name="Q10" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q10_4" name="Q10" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>11. 我擔心表現得很差</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q11_1" name="Q11" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q11_2" name="Q11" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q11_3" name="Q11" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q11_4" name="Q11" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>12. 我覺得胃不舒服</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q12_1" name="Q12" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q12_2" name="Q12" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q12_3" name="Q12" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q12_4" name="Q12" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>13. 我有自信，因為我預計能達到自己的目標</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q13_1" name="Q13" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q13_2" name="Q13" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q13_3" name="Q13" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q13_4" name="Q13" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>14. 我擔心其他人對我的表現感到失望</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q14_1" name="Q14" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q14_2" name="Q14" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q14_3" name="Q14" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q14_4" name="Q14" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>15. 我的手心出汗</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q15_1" name="Q15" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q15_2" name="Q15" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q15_3" name="Q15" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q15_4" name="Q15" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>16. 我有信心突破壓力</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q16_1" name="Q16" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q16_2" name="Q16" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q16_3" name="Q16" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q16_4" name="Q16" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>  
+  <fieldset>
+    <legend>17. 我覺得身體有些緊繃</legend>
+    <ul>
+      <li>
+        <label>
+          <input type="radio" id="Q17_1" name="Q17" value="1" />
+          1-一點也不
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q17_2" name="Q17" value="2" />
+          2-有點同意
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="radio" id="Q17_3" name="Q17" value="3" />
+          3-同意
+        </label>
+      </li>
+	  <li>
+        <label>
+          <input type="radio" id="Q17_4" name="Q17" value="4" />
+          4-非常同意
+        </label>
+      </li>
+    </ul>
+  </fieldset>
+  <input type="button" value="See the result" name="Submit" onclick= "result()">
+ </form>
+ <label style="display:none;" id="AlertLabel">尚有未作答的題目！</label>
+ <label style="display:none;background:linear-gradient(#fff 60%, #ffeb66 0%) !important;font-weight:bold;" id="ResultLabel">狀態焦慮是短暫、持續變化、主觀地，你可以有意識地調整！</label>
+ <canvas hidden id="myChart" width="400" height="400"></canvas>
+</body>
+</html>
